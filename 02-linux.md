@@ -152,6 +152,11 @@ sudo useradd -m <username> -s /usr/bin/bash
 sudo passwd <username>
 ```
 
+## Delete User
+```bash
+sudo userdel <username>
+```
+
 ## Switch User
 ```bash
 su <username>
@@ -164,6 +169,15 @@ sudo groupadd <groupname>
 cat /etc/group                              # View groups
 sudo gpasswd -a <username> <groupname>
 sudo gpasswd -a ubuntu docker               # Run Docker without sudo
+```
+
+## Modify User
+```bash
+sudo usermod -l <new_username> <username>   # Change login name
+sudo usermod -s <shell> <username>          # Change shell
+sudo usermod -g <groupname> <username>      # Change primary group
+sudo usermod -aG <groupname> <username>     # Add to group
+sudo usermod -aG docker ubuntu              # Run Docker without sudo
 ```
 
 ## Change File Ownership
@@ -189,5 +203,23 @@ File/directory permissions format:
 ││└─────── Owner: execute
 │└──────── Owner: write
 └───────── Owner: read (- for file, d for directory)
+```
+
+| Octal | r | w | x |
+|-------|---|---|---|
+| 0     | 0 | 0 | 0 |
+| 1     | 0 | 0 | 1 |
+| 2     | 0 | 1 | 0 |
+| 3     | 0 | 1 | 1 |
+| 4     | 1 | 0 | 0 |
+| 5     | 1 | 0 | 1 |
+| 6     | 1 | 1 | 0 |
+| 7     | 1 | 1 | 1 |
+
+Example: `rwx rw- r--` = `764`
+
+## Change Permissions
+```bash
+chmod 777 <filename>
 ```
 
