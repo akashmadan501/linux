@@ -1,23 +1,23 @@
 
 # File Management
 
-## Make Directory
+### Make Directory
 ```bash
 mkdir <dirname>
 mkdir -p <path>
 ```
 
-## Create File
+### Create File
 ```bash
 touch <filename>
 ```
 
-## Edit File
+### Edit File
 ```bash
 vim <filename>
 ```
 
-## Navigation
+### Navigation
 ```bash
 cd ..        # Go one directory back
 cd ~         # Go to home directory
@@ -139,7 +139,7 @@ journalctl -u nginx
 
 # User Management
 
-## Add User
+### Add User
 ```bash
 sudo useradd -m <username>
 sudo useradd -m <username> -s /usr/bin/bash
@@ -147,31 +147,31 @@ sudo useradd -m <username> -s /usr/bin/bash
 - `-m`: Create home directory
 - `-s`: Set login shell
 
-## Set Password
+### Set Password
 ```bash
 sudo passwd <username>
 ```
 
-## Delete User
+### Delete User
 ```bash
 sudo userdel <username>
 ```
 
-## Switch User
+### Switch User
 ```bash
 su <username>
 whoami    # See current user
 ```
 
-## Group Management
+### Group Management
 ```bash
-sudo groupadd <groupname>
+sudo groupadd <groupname>                   #create new group
 cat /etc/group                              # View groups
-sudo gpasswd -a <username> <groupname>
+sudo gpasswd -a <username> <groupname>      # add user to group
 sudo gpasswd -a ubuntu docker               # Run Docker without sudo
 ```
 
-## Modify User
+### Modify User
 ```bash
 sudo usermod -l <new_username> <username>   # Change login name
 sudo usermod -s <shell> <username>          # Change shell
@@ -180,7 +180,7 @@ sudo usermod -aG <groupname> <username>     # Add to group
 sudo usermod -aG docker ubuntu              # Run Docker without sudo
 ```
 
-## Change File Ownership
+### Change File Ownership
 ```bash
 sudo chown <username> <file_name>
 ```
@@ -218,7 +218,7 @@ File/directory permissions format:
 
 Example: `rwx rw- r--` = `764`
 
-## Change Permissions
+### Change Permissions
 ```bash
 chmod 777 <filename>
 ```
