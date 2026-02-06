@@ -214,6 +214,8 @@ File/directory permissions format:
 └───────── Owner: read (- for file, d for directory)
 ```
 
+## Permission Octal Values
+
 | Octal | r | w | x |
 |-------|---|---|---|
 | 0     | 0 | 0 | 0 |
