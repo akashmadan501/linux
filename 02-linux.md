@@ -78,7 +78,7 @@ SERVER TO SERVER:
 
 4. **View public key:**
     ```bash
-    cat id_ed8463.pub
+    cat id_ed25519.pub
     ```
 
 5. **Paste public key to server's ~/.ssh directory**
@@ -185,7 +185,16 @@ sudo usermod -aG docker ubuntu              # Run Docker without sudo
 sudo chown <username> <file_name>
 ```
 
+
+### To change group and ownership or file
+```bash
+sudo chown user:group filename 
 ---
+
+
+### to change froup
+chgrp group filename
+
 
 # Permission Management
 
@@ -218,8 +227,33 @@ File/directory permissions format:
 
 Example: `rwx rw- r--` = `764`
 
+1 - x
+2 - w
+4 - r
+
+
+1 - x
+2 - w
+3 - -wx
+4 - r--
+5 - r-x
+6 - rx-
+7 - rwx
+
+
 ### Change Permissions
 ```bash
 chmod 777 <filename>
 ```
+
+
+
+
+## Pipe operator (|) pass output of one command as input to another
+
+## /etc/shadow stores encrypted user password
+
+## df -h to see disk usage in human readable format
+
+
 
