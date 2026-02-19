@@ -22,6 +22,7 @@ vim <filename>
 cd ..        # Go one directory back
 cd ~         # Go to home directory
 ls           # List all directories/files
+cd -         # Previos directory 
 ```
 
 ---
