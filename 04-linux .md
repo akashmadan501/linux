@@ -167,16 +167,6 @@ google.com → 142.x.x.x
 6. Browser connects to that IP using TCP/HTTPS
 
 
----
-
-## Commands
-
-ping _dns_
-nslookup
-ifconfig
-curl ifconfig.me
-dig
-hostname -i   private ip
 
 ---
 
@@ -397,6 +387,157 @@ Common use:
 - **SSH use port 22, becoz convention + Standaradization, not a techical limit.**
 ---
 
+# Networking Commands for DevOps  
+
+
+
+## BASICS (Foundational Networking)
+
+**`ifconfig`**
+Shows network interfaces, IP addresses, and MAC details (legacy tool).
+
+**`ip addr`**
+Displays IP addresses and subnet info for all interfaces (modern replacement of ifconfig).
+
+**`ip link`**
+Shows network interfaces and their state (UP/DOWN).
+
+
+**`ip route`**  
+Displays the routing table to show how packets are forwarded outside the system.
+
+**`route -n`**  
+Shows the routing table with numeric IPs (legacy alternative to `ip route`).
+
+**`hostname -I`**  
+Prints all IP addresses assigned to the system.
+
+**`cat /etc/resolv.conf`**  
+Shows DNS servers configured for name resolution.
+
+**`ping`**  
+Tests basic network connectivity using ICMP packets.
+
+**`traceroute`**  
+Displays the path packets take to reach a destination host.
+
+**`tracepath`**  
+Shows network path similar to traceroute without requiring root access.
+
+**`nslookup`**  
+Resolves a domain name to an IP address using DNS.
+
+**`dig`**  
+Performs advanced DNS queries with detailed response data.
+
+---
+
+## SECURITY & PORTS (Network + Host Security)
+
+**`ss -tuln`**  
+Lists all listening TCP and UDP ports on the system.
+
+**`netstat -tulnp`**  
+Displays open ports and associated processes (legacy but widely used).
+
+**`lsof -i`**  
+Shows all processes currently using network connections.
+
+**`lsof -i :80`**  
+Identifies the process listening on port 80.
+
+**`iptables -L -n`**  
+Displays active firewall rules applied on the system.
+
+**`iptables -A INPUT -p tcp --dport 22 -j ACCEPT`**  
+Allows incoming SSH traffic on port 22.
+
+**`iptables -t nat -L -n`**  
+Shows NAT rules used for address translation.
+
+**`firewall-cmd --list-all`**  
+Displays current firewalld configuration (RHEL/CentOS).
+
+**`firewall-cmd --add-port=8080/tcp --permanent`**  
+Permanently opens port 8080 in the firewall.
+
+**`sysctl net.ipv4.ip_forward`**  
+Checks whether IP forwarding is enabled.
+
+**`sysctl -w net.ipv4.ip_forward=1`**  
+Enables IP forwarding for routing and NAT.
+
+---
+
+## DEVOPS / CLOUD NETWORKING
+
+**`curl`**  
+Tests HTTP endpoints and API responses.
+
+**`curl -v`**  
+Displays detailed HTTP/TLS request and response information.
+
+**`nc -zv host port`**  
+Checks if a specific port is reachable on a host.
+
+**`telnet host port`**  
+Tests basic TCP connectivity to a service.
+
+**`tcpdump -i eth0`**  
+Captures live network packets on an interface.
+
+**`tcpdump -i eth0 port 443`**  
+Captures only HTTPS traffic for debugging.
+
+**`tcpdump -w traffic.pcap`**  
+Saves captured packets for offline analysis.
+
+**`iftop`**  
+Displays real-time bandwidth usage per connection.
+
+**`nload`**  
+Shows incoming and outgoing network traffic statistics.
+
+**`iperf3`**  
+Measures network bandwidth between two systems.
+
+---
+
+## DOCKER NETWORKING
+
+**`docker network ls`**  
+Lists all Docker networks on the host.
+
+**`docker network inspect bridge`**  
+Displays configuration details of the Docker bridge network.
+
+---
+
+## KUBERNETES NETWORKING
+
+**`kubectl get svc`**  
+Lists Kubernetes services and exposed ports.
+
+**`kubectl get endpoints`**  
+Shows pod IPs backing a Kubernetes service.
+
+**`kubectl describe pod <pod-name>`**  
+Debugs pod-level networking and connectivity issues.
+
+---
+
+## DEBUG FLOW (Quick Recall)
+
+- IP / Subnet issue → `ip addr`, `ip route`  
+- DNS issue → `dig`, `nslookup`  
+- Port issue → `ss`, `lsof`  
+- Firewall issue → `iptables`, `firewall-cmd`  
+- App issue → `curl`  
+- Deep network issue → `tcpdump`
+
+
+---
+
 
 #### Pending Task
-**Update notes after learning AWS VPC**
+**Update notes after learning AWS VPC, KURBERNETES AND DOCKER**
