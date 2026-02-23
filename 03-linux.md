@@ -93,8 +93,11 @@ mkfs.ext4 /dev/data_vg/data_lv
 
 
 
-**“mkfs must be run on the logical volume because PVs and VGs contain LVM metadata and are not final block devices. Running mkfs on them would destroy LVM structures.”
-“ext4 is a journaling Linux filesystem that defines how files are stored, organized, and recovered on a disk or logical volume.”**
+**- mkfs must be run on the logical volume because PVs and VGs contain LVM metadata and are not final block devices. Running mkfs on them would destroy LVM structures.”
+“ext4 is a journaling Linux filesystem that defines how files are stored, organized, and recovered on a disk or logical volume.**
+
+
+**- Critical Rule: Never format or mount a disk directly on / unless you are installing the OS. because Mounting on / means you overwrite the root filesystem, system files become hidden, OS may not boot, Package manager breaks, Logs vanish**
 
 - Create mount point
 ```
