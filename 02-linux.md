@@ -155,8 +155,9 @@ sudo passwd <username>
 
 ## Delete User
 ```bash
-sudo userdel <username>
+sudo userdel -r <username>
 ```
+- `-r` - to del home dir of user
 
 ## Switch User
 ```bash
@@ -264,3 +265,20 @@ df -h
 ```
 Used to see disk usage in human readable format
 
+
+## RAM dancing in real time
+```
+watch -n 1 free -h
+```
+
+
+
+---
+### Commonly used commands
+
+- View ownership : `ls -l filename`
+- Change owner only : `sudo chown newowner filename`
+- Change group only : `sudo chgrp newgroup filename`
+- Change both owner and group : `sudo chown owner:group filename`
+- Recursive change (directories) :` sudo chown -R owner:group directory/`
+- Change only group with chown : `sudo chown :groupname filename`
