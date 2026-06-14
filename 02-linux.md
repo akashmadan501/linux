@@ -76,6 +76,7 @@ SERVER TO SERVER:
     ```bash
     ls
     ```
+    ```ls -l``` - to list with time sorting
 
 4. **View public key:**
     ```bash
@@ -113,6 +114,10 @@ cat /etc/ssh/sshd_config
 ```bash
 apt install package_name
 ```
+| Command   | Purpose                        |
+| --------- | ------------------------------ |
+| `apt`     | Human-friendly command         |
+| `apt-get` | Script/system-friendly command |
 
 ---
 
